@@ -16,4 +16,4 @@ saml_extension_priority: false
 mysql_java_client_version: 5.1.44
 
 guacamole_apt_install:
-  - tomcat9
+  - tomcat10
