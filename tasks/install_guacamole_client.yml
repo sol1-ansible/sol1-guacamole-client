@@ -3,14 +3,14 @@
 - name: Retrieving guacamole-{{ guacamole_version }}.war
   get_url:
     url: http://apache.org/dyn/closer.cgi?action=download&filename=guacamole/{{ guacamole_version }}/binary/guacamole-{{ guacamole_version }}.war
-    dest: /var/lib/tomcat9/webapps/ROOT.war
+    dest: /var/lib/tomcat{{ tomcat_version }}/webapps/ROOT.war
   become: true
 
 - name: check if old-ROOT exists
   stat:
-    path: /var/lib/tomcat9/webapps/old-ROOT
+    path: /var/lib/tomcat{{ tomcat_version }}/webapps/old-ROOT
   register: register_oldROOT
 
 - name: Moving the tomcat ROOT folder out the way
-  command: mv /var/lib/tomcat9/webapps/ROOT /var/lib/tomcat9/webapps/old-ROOT
+  command: mv /var/lib/tomcat{{ tomcat_version }}/webapps/ROOT /var/lib/tomcat{{ tomcat_version }}/webapps/old-ROOT
   when: not register_oldROOT.stat.exists

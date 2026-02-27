@@ -8,11 +8,11 @@
 - name: Copy over tomcat server.xml template
   template:
     src: tomcat-server.xml
-    dest: /etc/tomcat9/server.xml
+    dest: "/etc/tomcat{{ tomcat_version }}/server.xml"
 
 - name: Restarting tomcat
   systemd:
-    name: tomcat9
+    name: tomcat{{ tomcat_version }}
     state: restarted
     enabled: true
   become: true

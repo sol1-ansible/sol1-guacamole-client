@@ -14,6 +14,6 @@ saml_auth_enable: false
 saml_extension_priority: false
 
 mysql_java_client_version: 5.1.44
-
+tomcat_version: "10"
 guacamole_apt_install:
-  - tomcat10
+  - tomcat{{ tomcat_version }}

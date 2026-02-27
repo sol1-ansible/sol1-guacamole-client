@@ -7,7 +7,7 @@
 - name: Symlinking guacamole configuration directory
   file:
     src: /etc/guacamole
-    dest: /usr/share/tomcat9/.guacamole
+    dest: /usr/share/tomcat{{ tomcat_version }}/.guacamole
     state: link
   become: true
 - name: Creating guacamole lib directory
